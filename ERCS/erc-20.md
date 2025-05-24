@@ -62,11 +62,11 @@ function symbol() public view returns (string)
 
 #### decimals
 
-* TODO:
-Returns the number of decimals the token uses - e.g. `8`, means to divide the token amount by `100000000` to get its user representation.
-
-OPTIONAL - This method can be used to improve usability,
-but interfaces and other contracts MUST NOT expect these values to be present.
+* returns the number of decimals / token uses
+  * _Example:_ `8` -> token amount / `100000000` == user representation
+* OPTIONAL
+* uses
+  * improve usability,
 
 ``` js
 function decimals() public view returns (uint8)
