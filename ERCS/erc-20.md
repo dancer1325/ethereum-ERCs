@@ -60,7 +60,7 @@ function name() public view returns (string)
 function symbol() public view returns (string)
 ```
 
-#### decimals
+#### `.decimals()`
 
 * returns the number of decimals / token uses
   * _Example:_ `8` -> token amount / `100000000` == user representation
