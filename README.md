@@ -35,7 +35,7 @@
 
 * cycle
   * raise up an idea | [Ethereum Magicians](https://ethereum-magicians.org/) or [Ethereum Research](https://ethresear.ch/t/read-this-before-posting/8)
-  * if consensus is reached -> follow [EIP-1](https://eips.ethereum.org/EIPS/eip-1)
+  * if consensus is reached -> follow [EIP-1](https://eips.ethereum.org/EIPS/eip-1) to write one
 
 * if you have questions about how to implement it -> [Ethereum Stack Exchange](https://ethereum.stackexchange.com)
 
