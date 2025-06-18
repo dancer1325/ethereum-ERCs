@@ -11,8 +11,6 @@ created: 2016-01-14
 
 # Specification
 
-Code:
-
 ``` python
 import eth_utils
 
@@ -58,18 +56,26 @@ test("0xD1220A0cf47c7B9Be7A2E6BA89F429762e7b9aDb")
 
 ```
 
-In English, convert the address to hex, but if the `i`th digit is a letter (ie. it's one of `abcdef`) print it in uppercase if the `4*i`th bit of the hash of the lowercase hexadecimal address is 1 otherwise print it in lowercase.
+* | English, (TODO: where does it appear)
+  * the address is converted -- to -- hex
+  * if the `i`th digit == letter (_Example:_ `abcdef`) & lowercase hexadecimal address's hash's `4*i`th bit == 1 -> print it | uppercase
+  * OTHERWISE -> print it | lowercase
 
 # Rationale
 
-Benefits:
-- Backwards compatible with many hex parsers that accept mixed case, allowing it to be easily introduced over time
-- Keeps the length at 40 characters
-- On average there will be 15 check bits per address, and the net probability that a randomly generated address if mistyped will accidentally pass a check is 0.0247%. This is a ~50x improvement over ICAP, but not as good as a 4-byte check code.
+* Benefits
+  - BACKWARDS compatible -- with -- MANY hex parsers / accept mixed case
+    - -> easily introduced | time
+  - length == 40 characters
+  - 15 check bits / address /
+    - net probability / randomly generated address mistyped accidentally pass a check == 0.0247%
+* vs
+  * ICAP
+    * ~50x improvement
+  * 4-byte check code
+    * NOT good 
 
 # Implementation
-
-In javascript:
 
 ```js
 const createKeccakHash = require('keccak')
@@ -96,11 +102,12 @@ function toChecksumAddress (address) {
 '0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359'
 ```
 
-Note that the input to the Keccak256 hash is the lowercase hexadecimal string (i.e. the hex address encoded as ASCII):
+* Keccak256 hash's input
+  * == lowercase hexadecimal string (== hex address encoded -- as -- ASCII)
 
-```
-    var hash = createKeccakHash('keccak256').update(Buffer.from(address.toLowerCase(), 'ascii')).digest()
-```
+  ```
+  var hash = createKeccakHash('keccak256').update(Buffer.from(address.toLowerCase(), 'ascii')).digest()
+  ```
 
 # Test Cases
 
